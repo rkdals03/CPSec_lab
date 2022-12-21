@@ -37,6 +37,8 @@ if __name__ == '__main__':
     with Swarm(uris, factory=factory) as swarm:
         swarm.reset_estimators()
         print('Connected to  Crazyflies')
-        swarm.parallel_safe(take_off)
-        swarm.parallel_safe(land)
-        swarm.parallel_safe(hover_sequence)
+        swarm.sequential(hover_sequence) #sequentiala은 한대씩 동작 시킴
+		#swarm.parallel(hover_sequence) #parallel은 여러대를 동시에 동작 시킴
+        # swarm.parallel_safe(take_off)
+        # swarm.parallel_safe(land)
+        # swarm.parallel_safe(hover_sequence)
